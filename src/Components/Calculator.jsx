@@ -37,6 +37,10 @@ function Calculator() {
     setOutput(output.slice(0, -1));
   };
 
+  const percentage = () => {
+    setOutput (output/100)
+  };
+  
   const equal = () => {
     setOutput(eval(output).toString());
   };
@@ -52,7 +56,7 @@ function Calculator() {
         <button className="btn light-grey" onClick={deleteNum}>
           Del
         </button>
-        <button className="btn light-grey" onClick={() => displayNum("%")}>
+        <button className="btn light-grey" onClick={percentage}>
           %
         </button>
         <button className="btn orange" onClick={() => displayNum("/")}>
