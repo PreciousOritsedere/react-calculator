@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const operators = ["+", "-", "x", "÷", "."];
+const operators = ["+", "x", "÷", "."];
 const minus = ["-"];
 function Calculator() {
   //Usestate
@@ -26,7 +26,7 @@ function Calculator() {
       return;
     }
 
-    displayNum(output + value);
+    setOutput(output + value);
   };
 
   const clear = () => {
@@ -38,12 +38,12 @@ function Calculator() {
   };
 
   const equal = () => {
-    setOutput(eval(output));
+    setOutput(eval(output).toString());
   };
   return (
     <>
       <div className="output">
-        <textarea placeholder="0" value={3}></textarea>
+        <div className="textarea">{output || "0"}</div>
       </div>
       <div className="btnContainer">
         <button className="btn light-grey" onClick={clear}>
@@ -55,46 +55,46 @@ function Calculator() {
         <button className="btn light-grey" onClick={() => displayNum("%")}>
           %
         </button>
-        <button className="btn orange" onClick={() => displayNum("÷")}>
+        <button className="btn orange" onClick={() => displayNum("/")}>
           ÷
         </button>
-        <button className="btn" onClick={() => displayNum(7)}>
+        <button className="btn" onClick={() => displayNum('7')}>
           7
         </button>
-        <button className="btn" onClick={() => displayNum(8)}>
+        <button className="btn" onClick={() => displayNum('8')}>
           8
         </button>
-        <button className="btn" onClick={() => displayNum(9)}>
+        <button className="btn" onClick={() => displayNum('9')}>
           9
         </button>
-        <button className="btn orange" onClick={() => displayNum("x")}>
+        <button className="btn orange" onClick={() => displayNum("*")}>
           x
         </button>
-        <button className="btn" onClick={() => displayNum(4)}>
+        <button className="btn" onClick={() => displayNum('4')}>
           4
         </button>
-        <button className="btn" onClick={() => displayNum(5)}>
+        <button className="btn" onClick={() => displayNum('5')}>
           5
         </button>
-        <button className="btn" onClick={() => displayNum(6)}>
+        <button className="btn" onClick={() => displayNum('6')}>
           6
         </button>
         <button className="btn orange" onClick={() => displayNum("-")}>
           -
         </button>
-        <button className="btn" onClick={() => displayNum(1)}>
+        <button className="btn" onClick={() => displayNum('1')}>
           1
         </button>
-        <button className="btn" onClick={() => displayNum(2)}>
+        <button className="btn" onClick={() => displayNum('2')}>
           2
         </button>
-        <button className="btn" onClick={() => displayNum(3)}>
+        <button className="btn" onClick={() => displayNum('3')}>
           3
         </button>
         <button className="btn orange" onClick={() => displayNum("+")}>
           +
         </button>
-        <button className="btn zero" onClick={() => displayNum(0)}>
+        <button className="btn zero" onClick={() => displayNum('0')}>
           0
         </button>
         <button className="btn" onClick={() => displayNum(".")}>
